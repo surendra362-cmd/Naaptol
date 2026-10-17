@@ -1,0 +1,6 @@
+{
+  "name": "Smart Flip Phone Store",
+  "description": "Buy Smart Dual SIM Flip Phone with Camera & 4 Languages for just ₹389 with fast delivery across India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
