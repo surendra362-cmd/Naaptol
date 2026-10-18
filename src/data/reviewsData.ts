@@ -20,7 +20,7 @@ export const INITIAL_5_REVIEWS: ReviewItem[] = [
     rating: 5,
     date: 'Yesterday',
     color: 'Royal Gold',
-    comment: 'Ordered Royal Gold for my father. The sound is loud and clear, and the keypad buttons are very big and easy to press. The flip action feels sturdy. At ₹389 from Naaptol, this is unbelievable value!',
+    comment: 'Mobile bahut achcha hai, price ke hisab se bahut badiya hai. Call bhi kar sakte hai aur mobile ka look bahut accha hai. Sound ekdum loud aur clear hai. ₹389 me Naaptol se best deal hai!',
     verified: true,
     helpfulCount: 42
   },
@@ -32,7 +32,7 @@ export const INITIAL_5_REVIEWS: ReviewItem[] = [
     rating: 5,
     date: '2 days ago',
     color: 'Electric Purple',
-    comment: 'The Electric Purple color is really stylish! The battery lasts almost 4 days without charging. The outer notification lights are very convenient when calls arrive. Fast delivery by Naaptol.',
+    comment: 'The Electric Purple color is really stylish and unique! Battery easily lasts 4 days on single charge. Outer notification display shows incoming calls without opening the phone. Very happy!',
     verified: true,
     helpfulCount: 38
   },
@@ -44,7 +44,7 @@ export const INITIAL_5_REVIEWS: ReviewItem[] = [
     rating: 5,
     date: '3 days ago',
     color: 'Midnight Black',
-    comment: 'Got my parcel delivered in 3 days. Online payment was smooth with Google Pay. Dual SIM working nicely. Great backup phone for travel.',
+    comment: 'Phone ka look bahut accha hai. Delivery 3 din me aa gayi. Google Pay se online payment turant ho gaya tha. 2 SIM badiya chalte hai, network problem bilkul nahi hai.',
     verified: true,
     helpfulCount: 29
   },
@@ -56,7 +56,7 @@ export const INITIAL_5_REVIEWS: ReviewItem[] = [
     rating: 5,
     date: '4 days ago',
     color: 'Royal Gold',
-    comment: 'Wireless FM radio works without earphones, speaker sound is surprisingly loud. Very happy with the purchase. Full 5 stars to Naaptol team.',
+    comment: 'Wireless FM radio works without any earphones. Sound is very loud and clear. Sturdy flip body protects the screen from drops. Highly recommended to everyone.',
     verified: true,
     helpfulCount: 51
   },
@@ -67,10 +67,10 @@ export const INITIAL_5_REVIEWS: ReviewItem[] = [
     state: 'Maharashtra',
     rating: 4,
     date: '5 days ago',
-    color: 'Midnight Black',
-    comment: 'Compact and light weight. Fits easily in pocket or handbag. Call quality is very good on Jio and Airtel SIM cards. Excellent value for 389 rupees.',
+    color: 'Electric Purple',
+    comment: 'Papa ke liye mangwaya tha, unko bahut pasand aaya. Pocket me aaram se aa jata hai aur auto call recording bhi hai. ₹389 me sach me pura paisa vasool mobile hai.',
     verified: true,
-    helpfulCount: 19
+    helpfulCount: 23
   }
 ];
 
@@ -88,7 +88,7 @@ const LAST_NAMES = [
   'Sharma', 'Verma', 'Gupta', 'Patel', 'Singh', 'Yadav', 'Mishra', 'Pandey',
   'Chauhan', 'Reddy', 'Nair', 'Iyer', 'Joshi', 'Kulkarni', 'Deshmukh', 'Das',
   'Banerjee', 'Ghosh', 'Chatterjee', 'Roy', 'Bose', 'Dutta', 'Saha', 'Mukherjee',
-  'Jain', 'Agarwal', 'Bansal', 'Goyal', 'Mittals', 'Saxena', 'Bhatia', 'Arora',
+  'Jain', 'Agarwal', 'Bansal', 'Goyal', 'Mittal', 'Saxena', 'Bhatia', 'Arora',
   'Kapoor', 'Malhotra', 'Khanna', 'Chopra', 'Sethi', 'Gill', 'Sandhu', 'Dhillon'
 ];
 
@@ -125,18 +125,25 @@ const CITIES: { city: string; state: string }[] = [
   { city: 'Ranchi', state: 'Jharkhand' }
 ];
 
+// Balanced mix of natural Roman Hindi (Hinglish) & simple Indian English reviews
 const COMMENTS = [
+  'Mobile bahut achcha hai, price ke hisab se bahut achcha hai, call bhi kar skte hai or mobile ka look bhut accha hai.',
+  '₹389 me itna badiya flip phone milna mushkil hai. Sound quality bohot loud aur saaf aati hai.',
+  'Battery backup bahut accha hai, 3-4 din tak aaram se chalta hai. Charging ki koi tension nahi.',
+  'Royal Gold color ekdum premium lagta hai. Haath me pakadne par phone ka look bohot pyara lagta hai.',
+  'Bina earphone ke FM radio loud speaker par bajta hai. Awaz poore kamre me goonjti hai.',
+  '2 SIM card lagte hai dono me accha network pakadta hai. Call drop ki koi pareshani nahi aayi.',
   'Sound quality is super loud and crystal clear. Battery easily gives 3-4 days on single charge.',
-  'Bought for my grandfather. Large keypad keys are very easy for him to dial. Best flip phone.',
-  'Color looks even better than photos. Received sealed pack with warranty card. Thank you Naaptol!',
-  'Flash alert outer lights show missed calls and SMS without needing to open the flip. Very smart feature.',
-  'FM radio plays without earphones. Volume is loud enough for the entire room.',
-  'Dual SIM card works perfectly. No call drops. Delivery took only 3 days to our village.',
-  'Super satisfied with ₹389 deal. 100% genuine Naaptol piece. Worth every rupee.',
-  'Compact flip design fits in shirt pocket without any risk of scratches. Quality hinge mechanism.',
-  'Digital camera and torch light work great at night. Auto call recording feature is very useful.',
-  'Prepaid payment with PhonePe was instant and safe. Delivery by BlueDart was fast and clean.',
-  'Long battery backup, sturdy body, easy to operate in multiple languages. Highly recommended to everyone.'
+  'Keypad ke buttons bade-bade hai, dial karne aur number dekhne me bohot aasaani hoti hai.',
+  'Outer flash alert screen bohot useful hai, bina flip khole pata chal jata hai kiska call ya SMS aaya hai.',
+  'Bought for my parents. Large keypad keys, clear screen font and very easy to operate.',
+  'Torch light bohot tez hai raat ke liye. Auto call recording feature bhi bohot accha kaam kar raha hai.',
+  'Prepaid payment with PhonePe was instant and safe. Delivery by BlueDart in 3 days. Sealed pack received.',
+  'Phone ka design bohot solid hai, pocket me rakhne se screen par scratch nahi aate. Paisa vasool deal!',
+  'Very nice flip phone for daily use. Long battery life, clear loudspeaker and smooth flip hinge.',
+  'Electric Purple color bohot stylish hai. Lightweight hai aur pocket me aaram se fit ho jata hai.',
+  'Delivery bohot fast thi. Naaptol se pehli baar order kiya tha, pura paisa vasool product hai.',
+  'Both SIM cards working with clear voice quality. Great value for ₹389 with free home delivery.'
 ];
 
 const COLORS: ('Royal Gold' | 'Midnight Black' | 'Electric Purple')[] = [

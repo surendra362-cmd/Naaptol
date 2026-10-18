@@ -169,7 +169,7 @@ export const VERIFIED_REVIEWS = [
     rating: 5,
     date: 'Yesterday',
     color: 'Royal Gold',
-    comment: 'Ordered Royal Gold for my father. The sound is loud and clear, and the keypad buttons are very big and easy to press. The flip action feels sturdy. At ₹389 this is unbelievable value!',
+    comment: 'Mobile bahut achcha hai, price ke hisab se bahut badiya hai. Call bhi kar sakte hai aur mobile ka look bahut accha hai. Sound ekdum loud aur clear hai. ₹389 me Naaptol se best deal hai!',
     verified: true
   },
   {
@@ -178,7 +178,7 @@ export const VERIFIED_REVIEWS = [
     rating: 5,
     date: '2 days ago',
     color: 'Electric Purple',
-    comment: 'The Electric Purple color is really stylish! The battery lasts almost 4 days without charging. The outer notification lights are very convenient when calls arrive.',
+    comment: 'The Electric Purple color is really stylish and unique! Battery easily lasts 4 days on single charge. Outer notification display shows incoming calls without opening the phone. Very happy!',
     verified: true
   },
   {
@@ -187,7 +187,7 @@ export const VERIFIED_REVIEWS = [
     rating: 5,
     date: '3 days ago',
     color: 'Midnight Black',
-    comment: 'Got my parcel delivered in 3 days. Online payment was smooth with Google Pay. Dual SIM working nicely. Great backup phone for travel.',
+    comment: 'Phone ka look bahut accha hai. Delivery 3 din me aa gayi. Google Pay se online payment turant ho gaya tha. 2 SIM badiya chalte hai, network problem bilkul nahi hai.',
     verified: true
   },
   {
@@ -196,7 +196,7 @@ export const VERIFIED_REVIEWS = [
     rating: 5,
     date: '4 days ago',
     color: 'Royal Gold',
-    comment: 'FM radio works without earphones, speaker sound is surprisingly loud. Very happy with the purchase. Full 5 stars.',
+    comment: 'Wireless FM radio works without any earphones. Sound is very loud and clear. Sturdy flip body protects the screen from drops. Highly recommended to everyone.',
     verified: true
   }
 ];

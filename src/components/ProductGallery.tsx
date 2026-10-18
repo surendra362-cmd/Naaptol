@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Eye, Sparkles } from 'lucide-react';
 import { PRODUCT_IMAGES, PRODUCT_COLORS, ColorOption } from '../data/productData';
 
@@ -16,16 +16,31 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
   setActiveIndex,
 }) => {
   const [isZoomed, setIsZoomed] = useState(false);
+  const thumbContainerRef = useRef<HTMLDivElement>(null);
 
   const currentImage = PRODUCT_IMAGES[activeIndex];
 
   const handlePrev = () => {
-    setActiveIndex((activeIndex - 1 + PRODUCT_IMAGES.length) % PRODUCT_IMAGES.length);
+    const prevIdx = (activeIndex - 1 + PRODUCT_IMAGES.length) % PRODUCT_IMAGES.length;
+    setActiveIndex(prevIdx);
+    setIsZoomed(false);
   };
 
   const handleNext = () => {
-    setActiveIndex((activeIndex + 1) % PRODUCT_IMAGES.length);
+    const nextIdx = (activeIndex + 1) % PRODUCT_IMAGES.length;
+    setActiveIndex(nextIdx);
+    setIsZoomed(false);
   };
+
+  // Keep active thumbnail centered in the scroll view
+  useEffect(() => {
+    if (thumbContainerRef.current) {
+      const activeEl = thumbContainerRef.current.children[activeIndex] as HTMLElement;
+      if (activeEl) {
+        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }, [activeIndex]);
 
   return (
     <div className="bg-white p-4 max-w-md mx-auto">
@@ -40,7 +55,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
         </span>
       </div>
 
-      {/* Main Image Stage */}
+      {/* Main Big Image Stage */}
       <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100 border border-slate-200/80 shadow-inner group">
         <img
           src={currentImage.url}
@@ -92,8 +107,11 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
         </div>
       </div>
 
-      {/* Thumbnails Row */}
-      <div className="flex gap-2 overflow-x-auto py-2.5 px-0.5 no-scrollbar scroll-smooth">
+      {/* Thumbnails Row (Small Images) */}
+      <div
+        ref={thumbContainerRef}
+        className="flex gap-2 overflow-x-auto py-2.5 px-0.5 no-scrollbar scroll-smooth"
+      >
         {PRODUCT_IMAGES.map((img, idx) => (
           <button
             key={idx}
@@ -103,7 +121,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
             }}
             className={`relative flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
               activeIndex === idx
-                ? 'border-red-600 ring-2 ring-red-400/30 scale-105'
+                ? 'border-red-600 ring-2 ring-red-400/30 scale-105 shadow-sm'
                 : 'border-slate-200 opacity-70 hover:opacity-100'
             }`}
           >
@@ -112,8 +130,49 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
         ))}
       </div>
 
+      {/* Interactive Slider Track right under the small thumbnails */}
+      <div className="mt-0.5 mb-2 px-2.5 py-1.5 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2 shadow-xs">
+        <button
+          type="button"
+          onClick={handlePrev}
+          aria-label="Previous thumbnail photo"
+          className="w-7 h-7 rounded-lg bg-white border border-slate-300 text-slate-700 flex items-center justify-center hover:bg-slate-100 active:scale-90 transition-all cursor-pointer shadow-xs flex-shrink-0"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        <div className="flex-1 flex flex-col justify-center">
+          <input
+            type="range"
+            min={0}
+            max={PRODUCT_IMAGES.length - 1}
+            value={activeIndex}
+            onChange={(e) => {
+              const val = Number(e.target.value);
+              setActiveIndex(val);
+              setIsZoomed(false);
+            }}
+            aria-label="Slide to view all photos"
+            className="w-full accent-red-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
+          />
+          <div className="flex items-center justify-between text-[10px] text-slate-500 font-semibold mt-1">
+            <span>◄ Slide to view all {PRODUCT_IMAGES.length} photos ►</span>
+            <span className="font-bold text-red-600">Photo {activeIndex + 1} of {PRODUCT_IMAGES.length}</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={handleNext}
+          aria-label="Next thumbnail photo"
+          className="w-7 h-7 rounded-lg bg-white border border-slate-300 text-slate-700 flex items-center justify-center hover:bg-slate-100 active:scale-90 transition-all cursor-pointer shadow-xs flex-shrink-0"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+
       {/* Quick Color Switcher right below gallery */}
-      <div className="mt-2 p-3 bg-slate-50 rounded-xl border border-slate-200">
+      <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-bold text-slate-700">
             Selected Color: <strong className="text-slate-900">{selectedColor.name}</strong>
